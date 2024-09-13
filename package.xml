@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>rtsp_camera</name>
+  <version>0.0.1</version>
+  <description>The rtsp_camera package</description>
+
+  <maintainer email="your.email@example.com">Your Name</maintainer>
+
+  <license>Apache License 2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Dependencies -->
+  <depend>rclcpp</depend>
+  <depend>sensor_msgs</depend>
+  <depend>image_transport</depend>
+  <depend>cv_bridge</depend>
+  <depend>OpenCV</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
