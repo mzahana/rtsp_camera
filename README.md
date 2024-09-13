@@ -221,6 +221,3 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 Contributions are welcome! Please open issues or pull requests for improvements, bug fixes, or new features.
 
-## Contact
-
-For questions or support, please contact [Your Name](mailto:your.email@example.com).
