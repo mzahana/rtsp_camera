@@ -15,37 +15,10 @@ The **`rtsp_camera`** package is a ROS 2 node that captures an RTSP (Real Time S
 
 ## Dependencies
 
-- **ROS 2**: Tested with ROS 2 humble.
+- **ROS 2**: Tested with ROS 2 Humble.
 - **GStreamer 1.0**: Multimedia framework for handling RTSP streams.
 - **OpenCV**: For image manipulation and conversion.
 - **cv_bridge**: ROS 2 package that provides an interface between ROS 2 image messages and OpenCV images.
-
-## Installation
-
-### Prerequisites
-
-Ensure that you have the following dependencies installed on your system:
-
-#### GStreamer and Plugins
-
-```bash
-sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev \
-gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
-```
-
-#### OpenCV Development Libraries
-
-```bash
-sudo apt-get install libopencv-dev
-```
-
-#### ROS 2 Packages
-
-```bash
-sudo apt-get install ros-humble-rclcpp ros-humble-sensor-msgs ros-humble-image-transport ros-humble-cv-bridge
-```
-
-*Replace `humble` with your ROS 2 distribution name if different.*
 
 ## Building the Package
 
@@ -55,19 +28,26 @@ sudo apt-get install ros-humble-rclcpp ros-humble-sensor-msgs ros-humble-image-t
 
    ```bash
    cd ~/ros2_ws/src  # Replace with your workspace path
-   git clone https://github.com/yourusername/rtsp_camera.git
+   git clone https://github.com/mzahana/rtsp_camera.git
    ```
 
-2. **Build the Package**
+2. **Install Dependencies**
 
-   From your workspace root directory, build the package using `colcon`:
+   From your workspace root directory, use `rosdep` to install all dependencies:
 
    ```bash
-   cd ~/ros2_ws  # Replace with your workspace path
+   rosdep install --from-paths src --ignore-src -y
+   ```
+
+3. **Build the Package**
+
+   Build the package using `colcon`:
+
+   ```bash
    colcon build --packages-select rtsp_camera
    ```
 
-3. **Source the Workspace**
+4. **Source the Workspace**
 
    After building, source your workspace:
 

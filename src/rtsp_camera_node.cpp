@@ -5,6 +5,7 @@
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/image.hpp>
 #include <cv_bridge/cv_bridge.h>
+#include <image_transport/image_transport.hpp>
 
 class RTSPCameraNode : public rclcpp::Node {
 public:
@@ -22,7 +23,7 @@ public:
         this->get_parameter("width", width_);
         this->get_parameter("height", height_);
 
-        image_pub_ = this->create_publisher<sensor_msgs::msg::Image>(camera_name_ + "/image_raw", 10);
+        image_pub_ = image_transport::create_publisher(this, camera_name_ + "/image_raw");
 
         RCLCPP_INFO(this->get_logger(), "Starting RTSP camera node with URL: %s", rtsp_url_.c_str());
 
@@ -130,7 +131,7 @@ private:
                     msg->header.frame_id = camera_name_;
 
                     // Publish the image
-                    image_pub_->publish(*msg);
+                    image_pub_.publish(msg);
 
                     gst_buffer_unmap(buffer, &map);
                 }
@@ -182,7 +183,7 @@ private:
     int height_;
 
     // ROS publisher
-    rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr image_pub_;
+    image_transport::Publisher image_pub_;
 
     // GStreamer elements
     GstElement* pipeline_;

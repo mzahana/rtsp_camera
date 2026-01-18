@@ -15,7 +15,11 @@
   <depend>sensor_msgs</depend>
   <depend>image_transport</depend>
   <depend>cv_bridge</depend>
-  <depend>OpenCV</depend>
+  <depend>libopencv-dev</depend>
+  <depend>libgstreamer1.0-dev</depend>
+  <depend>libgstreamer-plugins-base1.0-dev</depend>
+  <depend>gstreamer1.0-plugins-good</depend>
+  <depend>gstreamer1.0-rtsp</depend>
 
   <export>
     <build_type>ament_cmake</build_type>
